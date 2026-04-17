@@ -1,0 +1,94 @@
+2026-04-17 10:10:50 - Starting InvestorPlatformApplication using Java 22.0.1 with PID 3384 (D:\Coding\Maven\Projects\investor-platform\target\classes started by Ujala Choudhary in D:\Coding\Maven\Projects\investor-platform)
+2026-04-17 10:10:50 - Running with Spring Boot v4.0.5, Spring v7.0.6
+2026-04-17 10:10:50 - No active profile set, falling back to 1 default profile: "default"
+2026-04-17 10:10:51 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-17 10:10:51 - Finished Spring Data repository scanning in 43 ms. Found 2 JPA repository interfaces.
+2026-04-17 10:10:52 - Tomcat initialized with port 8080 (http)
+2026-04-17 10:10:52 - Starting service [Tomcat]
+2026-04-17 10:10:52 - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-17 10:10:52 - Root WebApplicationContext: initialization completed in 1523 ms
+2026-04-17 10:10:52 - HikariPool-1 - Starting...
+2026-04-17 10:10:52 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@79252c83
+2026-04-17 10:10:52 - HikariPool-1 - Start completed.
+2026-04-17 10:10:52 - Database: jdbc:postgresql://localhost:5432/investor-platform?charSet=UTF-8 (PostgreSQL 16.3)
+2026-04-17 10:10:52 - Successfully validated 1 migration (execution time 00:00.027s)
+2026-04-17 10:10:52 - Current version of schema "public": 1
+2026-04-17 10:10:52 - Schema "public" is up to date. No migration necessary.
+2026-04-17 10:10:52 - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-17 10:10:52 - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-04-17 10:10:53 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-17 10:10:53 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/investor-platform?charSet=UTF-8]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.3
+	Default catalog/schema: investor-platform/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-17 10:10:54 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-17 10:10:54 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 10:10:54 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-17 10:10:54 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-17 10:10:55 - Tomcat started on port 8080 (http) with context path '/'
+2026-04-17 10:10:55 - Started InvestorPlatformApplication in 5.055 seconds (process running for 5.525)
+2026-04-17 10:10:55 - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-04-17 10:10:55 - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-04-17 10:11:02 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-17 10:11:02 - Initializing Servlet 'dispatcherServlet'
+2026-04-17 10:11:02 - Completed initialization in 0 ms
+2026-04-17 10:18:36 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-17 10:18:36 - Graceful shutdown complete
+2026-04-17 10:18:36 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 10:18:36 - HikariPool-1 - Shutdown initiated...
+2026-04-17 10:18:36 - HikariPool-1 - Shutdown completed.
+2026-04-17 10:19:04 - Starting InvestorPlatformApplication using Java 22.0.1 with PID 7492 (D:\Coding\Maven\Projects\investor-platform\target\classes started by Ujala Choudhary in D:\Coding\Maven\Projects\investor-platform)
+2026-04-17 10:19:04 - Running with Spring Boot v4.0.5, Spring v7.0.6
+2026-04-17 10:19:04 - No active profile set, falling back to 1 default profile: "default"
+2026-04-17 10:19:05 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-17 10:19:05 - Finished Spring Data repository scanning in 50 ms. Found 2 JPA repository interfaces.
+2026-04-17 10:19:06 - Tomcat initialized with port 8080 (http)
+2026-04-17 10:19:06 - Starting service [Tomcat]
+2026-04-17 10:19:06 - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-04-17 10:19:06 - Root WebApplicationContext: initialization completed in 1495 ms
+2026-04-17 10:19:06 - HikariPool-1 - Starting...
+2026-04-17 10:19:06 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@584ca390
+2026-04-17 10:19:06 - HikariPool-1 - Start completed.
+2026-04-17 10:19:06 - Database: jdbc:postgresql://localhost:5432/investor-platform?charSet=UTF-8 (PostgreSQL 16.3)
+2026-04-17 10:19:06 - Successfully validated 1 migration (execution time 00:00.026s)
+2026-04-17 10:19:06 - Current version of schema "public": 1
+2026-04-17 10:19:06 - Schema "public" is up to date. No migration necessary.
+2026-04-17 10:19:06 - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-17 10:19:07 - HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-04-17 10:19:07 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-17 10:19:07 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/investor-platform?charSet=UTF-8]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.3
+	Default catalog/schema: investor-platform/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-17 10:19:08 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-17 10:19:08 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 10:19:08 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-17 10:19:08 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-17 10:19:09 - Tomcat started on port 8080 (http) with context path '/'
+2026-04-17 10:19:09 - Started InvestorPlatformApplication in 5.342 seconds (process running for 5.786)
+2026-04-17 10:19:09 - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-04-17 10:19:09 - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-04-17 10:19:17 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-17 10:19:17 - Initializing Servlet 'dispatcherServlet'
+2026-04-17 10:19:17 - Completed initialization in 0 ms
+2026-04-17 10:22:32 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-17 10:22:32 - Graceful shutdown complete
+2026-04-17 10:22:32 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-17 10:22:32 - HikariPool-1 - Shutdown initiated...
+2026-04-17 10:22:32 - HikariPool-1 - Shutdown completed.

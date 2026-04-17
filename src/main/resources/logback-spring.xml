@@ -1,0 +1,30 @@
+<configuration>
+
+    <!-- Log file location -->
+    <property name="LOG_FILE" value="logs/investor-app.log"/>
+
+    <!-- File Appender -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+
+        <!-- Rotation -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/investor-app.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+
+        <!-- Log format -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root Logger -->
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+    </root>
+
+    <!-- Package specific logging -->
+    <logger name="com.wealth.investor" level="DEBUG"/>
+
+</configuration>
