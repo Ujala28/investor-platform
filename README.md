@@ -56,7 +56,7 @@ com.wealth.investor
 ### 1️⃣ Clone project
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/Ujala28/investor-platform>
 ```
 
 ---
