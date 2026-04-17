@@ -10,6 +10,7 @@ import com.wealth.investor.entity.enums.KycStatus;
 import com.wealth.investor.repository.InvestorRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.BadRequestException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
@@ -30,13 +31,13 @@ public class InvestorService {
     private final InvestorRepository investorRepository;
     private static final Logger log = LoggerFactory.getLogger(InvestorService.class);
 
-    // 🔹 CREATE
-    public InvestorResponse createInvestor(CreateInvestorRequest request) {
+    //CREATE
+    public InvestorResponse createInvestor(CreateInvestorRequest request) throws BadRequestException {
 
         log.info("Creating investor with email: {}", request.getEmail());
 
         if (investorRepository.existsByEmail(request.getEmail())) {
-            throw new IllegalArgumentException("Email already exists");
+            throw new BadRequestException("Email already exists");
         }
 
         int age = Period.between(request.getDateOfBirth(), LocalDate.now()).getYears();
@@ -60,7 +61,7 @@ public class InvestorService {
         return mapToResponse(saved);
     }
 
-    // 🔹 GET (CACHEABLE)
+    //GET (CACHEABLE)
     @Cacheable(value = "investors", key = "#id")
     public InvestorResponse getInvestor(Long id) {
 
@@ -73,7 +74,7 @@ public class InvestorService {
         return mapToResponse(investor);
     }
 
-    // 🔹 UPDATE (CACHE PUT)
+    //UPDATE (CACHE PUT)
     @CachePut(value = "investors", key = "#id")
     public InvestorResponse updateInvestor(Long id, UpdateInvestorRequest request) {
 
@@ -117,7 +118,7 @@ public class InvestorService {
         return mapToResponse(updated);
     }
 
-    // 🔹 DELETE (CACHE EVICT)
+    //DELETE (CACHE EVICT)
     @CacheEvict(value = "investors", key = "#id")
     public void deleteInvestor(Long id) {
 
@@ -132,7 +133,7 @@ public class InvestorService {
         log.info("Investor deleted successfully: id={}", id);
     }
 
-    // 🔹 HELPER METHODS
+    // HELPER METHODS
 
     private Investor getInvestorEntity(Long id) {
         return investorRepository.findById(id)
@@ -140,9 +141,20 @@ public class InvestorService {
     }
 
     private void validateKycTransition(KycStatus current, KycStatus next) {
+
+        //REJECTED → VERIFIED not allowed
         if (current == KycStatus.REJECTED && next == KycStatus.VERIFIED) {
-            throw new RuntimeException("REJECTED → VERIFIED not allowed");
+            throw new IllegalStateException("Cannot move from REJECTED to VERIFIED");
         }
+
+        //VERIFIED → PENDING not allowed
+        if (current == KycStatus.VERIFIED && next == KycStatus.PENDING) {
+            throw new IllegalStateException("Invalid transition from VERIFIED to PENDING");
+        }
+
+        // Allowed transitions:
+        // PENDING → VERIFIED
+        // VERIFIED → REJECTED
     }
 
     private InvestorResponse mapToResponse(Investor investor) {
@@ -158,7 +170,7 @@ public class InvestorService {
                 .build();
     }
 
-    // 🔹 PAGINATION + FILTER
+    // PAGINATION + FILTER
     public PaginatedResponse<InvestorResponse> getInvestors(
             InvestorType investorType,
             KycStatus kycStatus,

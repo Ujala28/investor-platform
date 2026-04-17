@@ -9,6 +9,7 @@ import com.wealth.investor.entity.enums.KycStatus;
 import com.wealth.investor.service.InvestorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.BadRequestException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -22,11 +23,11 @@ import org.springframework.web.bind.annotation.*;
 public class InvestorController {
 
     private final InvestorService investorService;
-    private static final Logger log = LoggerFactory.getLogger(InvestorService.class);
+    private static final Logger log = LoggerFactory.getLogger(InvestorController.class);
 
     @PostMapping
     public ResponseEntity<InvestorResponse> createInvestor(
-            @Valid @RequestBody CreateInvestorRequest request) {
+            @Valid @RequestBody CreateInvestorRequest request) throws BadRequestException {
         log.info("Received create investor request");
         InvestorResponse response = investorService.createInvestor(request);
 
@@ -41,7 +42,7 @@ public class InvestorController {
     @PatchMapping("/{id}")
     public ResponseEntity<InvestorResponse> updateInvestor(
             @PathVariable Long id,
-            @RequestBody UpdateInvestorRequest request) {
+            @Valid @RequestBody UpdateInvestorRequest request) {
 
         return ResponseEntity.ok(investorService.updateInvestor(id, request));
     }
@@ -55,5 +56,11 @@ public class InvestorController {
         return ResponseEntity.ok(
                 investorService.getInvestors(investorType, kycStatus, page, size)
         );
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteInvestor(@PathVariable Long id) {
+        log.info("Deleting investor with id: {}", id);
+        investorService.deleteInvestor(id);
+        return ResponseEntity.noContent().build();
     }
 }
