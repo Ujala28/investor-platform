@@ -32,12 +32,12 @@ public class InvestorService {
     private static final Logger log = LoggerFactory.getLogger(InvestorService.class);
 
     //CREATE
-    public InvestorResponse createInvestor(CreateInvestorRequest request) throws BadRequestException {
+    public InvestorResponse createInvestor(CreateInvestorRequest request) {
 
         log.info("Creating investor with email: {}", request.getEmail());
 
         if (investorRepository.existsByEmail(request.getEmail())) {
-            throw new BadRequestException("Email already exists");
+            throw new IllegalArgumentException("Email already exists");
         }
 
         int age = Period.between(request.getDateOfBirth(), LocalDate.now()).getYears();
